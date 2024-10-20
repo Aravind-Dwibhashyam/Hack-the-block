@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralised Dreamers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- <p class="challenge">Challenge</p> -->
+    <div class="container">
+        <h1 class="heading">Tokens : 1200</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Sl no.</th>
+                <th>Transaction ID</th>
+                <!-- <th>Juror Decision</th> -->
+                <th>Tokens Staking</th>
+                <th>Juror Decision</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>123456</td>
+                 <!-- <td><button class="challenge">sum</td> -->
+                <td><input type="number" id="token" placeholder="Token Staken" maxlength="1200">   <button onclick="checkNumber()">Submit</button></td>
+                <td id="codition"><button id="redirectButton">Enter Tokens</button></td>
+            </tr>
+           
+        </table>
+    </div>
+    <script>
+        const txt1=document.getElementById('token').value;
+        const btn1=document.getElementById('but1');
+        btn1.addEventListener('click',func);
+        function checkNumber() {
+            const inputNumber = document.getElementById("token").value;
+            let value = inputNumber > 120;
+            updateButtonAndRedirect(value);
+        }
+
+
+        function updateButtonAndRedirect(value) {
+            const button = document.getElementById("redirectButton");
+
+            if (value) {
+                button.textContent = "Yes"; // Display 'Yes' if value is true
+                button.onclick = function() {
+                    window.location.href = "true.html"; // Redirect to true.html
+                };
+            } else {
+                button.textContent = "No"; // Display 'No' if value is false
+                button.onclick = function() {
+                    window.location.href = "false.html"; // Redirect to false.html
+                };
+            }
+        }
+
+        // Example value (change this to test)
+      // let value = false; // Change to false to test the "No" case
+
+        // Call the function to set up the button when the page loads
+        window.onload = function() {
+            updateButtonAndRedirect(value);
+        };
+    </script>
+    
+</body>
+</html>
